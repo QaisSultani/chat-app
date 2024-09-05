@@ -35,7 +35,9 @@ const FriendsPage = (props: Props) => {
             })
           )
         ) : (
-          <Loader2 className="h-8 w-8" />
+          <div className="h-full w-full flex justify-center items-center">
+            <Loader2 />
+          </div>
         )}
       </ItemList>
       <ConversationFallback />
