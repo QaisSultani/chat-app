@@ -3,8 +3,7 @@ import { query } from "./_generated/server";
 import { getUserByClerkId } from "./_utils";
 
 export const get = query({
-  args: {},
-  handler: async (ctx, args) => {
+  handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
 
     if (!identity) {
@@ -60,10 +59,10 @@ export const count = query({
     }
 
     const requests = await ctx.db
-    .query("requests")
-    .withIndex("by_receiver", (q) => q.eq("receiver", currentUser._id))
-    .collect();
+      .query("requests")
+      .withIndex("by_receiver", (q) => q.eq("receiver", currentUser._id))
+      .collect();
 
-    return requests.length
-  }
-})
+    return requests.length;
+  },
+});
