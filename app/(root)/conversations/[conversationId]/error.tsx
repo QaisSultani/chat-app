@@ -9,7 +9,7 @@ type Props = {
   error: Error;
 };
 
-const error = ({ error }: Props) => {
+const ErrorComponent = ({ error }: Props) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -19,4 +19,4 @@ const error = ({ error }: Props) => {
   return <ConversationFallback />;
 };
 
-export default error;
+export default ErrorComponent;
